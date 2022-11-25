@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:text="LOGIN"
-        app:layout_constraintBottom_toTopOf="@+id/textViewRegisterHere"
+        app:layout_constraintBottom_toTopOf="@+id/textViewSignUp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPasswordLogin" />
@@ -57,10 +57,10 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextEmailLogin" />
 
     <TextView
-        android:id="@+id/textViewRegisterHere"
+        android:id="@+id/textViewSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Register Here"
+        android:text="Sign Up"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
