@@ -21,7 +21,7 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var btRegister: Button
     private lateinit var btSignIn: TextView
 
-    private lateinit var auth: FirebaseAuth
+    private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +30,8 @@ class RegisterActivity : AppCompatActivity() {
         supportActionBar!!.hide()
 
         startingComponents()
+
+        firebaseAuth = FirebaseAuth.getInstance()
 
         btRegister.setOnClickListener() {
 
@@ -40,10 +42,8 @@ class RegisterActivity : AppCompatActivity() {
             if (!email.isEmpty()) {
                 if (!senha.isEmpty()) {
 
-                    auth.createUserWithEmailAndPassword(
-                        email, senha
-                    ).addOnCompleteListener { task ->
-                        if (task.isSuccessful){
+                    firebaseAuth.createUserWithEmailAndPassword(email, senha).addOnCompleteListener {
+                        if (it.isSuccessful){
 
                             Toast.makeText(this, "Cadastro Realizado Com Sucesso!!!", Toast.LENGTH_SHORT).show()
                             val intent = Intent(this, HomeActivity::class.java)

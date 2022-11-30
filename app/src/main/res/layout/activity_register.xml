@@ -16,14 +16,16 @@
         android:drawableLeft="@drawable/ic_email"
         android:ems="10"
         android:hint="Email"
+        android:textColor="@color/black"
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
         android:padding="10dp"
         android:textColorHint="#808080"
         app:layout_constraintBottom_toTopOf="@+id/editTextPasswordRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageViewUIRegister"
-        tools:ignore="TouchTargetSizeCheck"
-        tools:layout_editor_absoluteX="32dp" />
+        tools:ignore="TouchTargetSizeCheck" />
 
     <Button
         android:id="@+id/buttonRegister"
@@ -32,8 +34,9 @@
         android:layout_marginBottom="16dp"
         android:text="Register"
         app:layout_constraintBottom_toTopOf="@+id/textViewSignIn"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPasswordRegister"
-        tools:layout_editor_absoluteX="32dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPasswordRegister" />
 
     <TextView
         android:id="@+id/textViewSignIn"
@@ -43,8 +46,9 @@
         android:textColor="@color/white"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonRegister"
-        tools:layout_editor_absoluteX="185dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonRegister" />
 
     <EditText
         android:id="@+id/editTextPasswordRegister"
@@ -58,11 +62,13 @@
         android:inputType="textPassword"
         android:minHeight="48dp"
         android:padding="10dp"
+        android:textColor="@color/black"
         android:textColorHint="#808080"
         app:layout_constraintBottom_toTopOf="@+id/buttonRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextEmailRegister"
-        tools:ignore="TouchTargetSizeCheck"
-        tools:layout_editor_absoluteX="32dp" />
+        tools:ignore="TouchTargetSizeCheck"/>
 
     <ImageView
         android:id="@+id/imageViewUIRegister"
@@ -70,9 +76,10 @@
         android:layout_height="100dp"
         android:layout_marginBottom="50dp"
         app:layout_constraintBottom_toTopOf="@+id/editTextEmailRegister"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
-        app:srcCompat="@drawable/businessnamewithoutbackground"
-        tools:layout_editor_absoluteX="56dp" />
+        app:srcCompat="@drawable/businessnamewithoutbackground" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -21,7 +21,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var btLogin: Button
     private lateinit var btSignUp: TextView
 
-    private lateinit var auth: FirebaseAuth
+    private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,11 +38,13 @@ class LoginActivity : AppCompatActivity() {
             val email: String = etEmail.text.toString()
             val senha: String = etPassword.text.toString()
 
-            //Verifica se está vazio
-            if( !email.isEmpty()){
-                if( !senha.isEmpty()){
+            //Diferenças para RegisterActivity= isNotEmpty e task ->
 
-                    auth.signInWithEmailAndPassword(
+            //Verifica se está vazio
+            if( email.isNotEmpty()){
+                if( senha.isNotEmpty()){
+
+                    firebaseAuth.signInWithEmailAndPassword(
                         email, senha
                     ).addOnCompleteListener { task ->
                         if (task.isSuccessful){
