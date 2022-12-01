@@ -1,8 +1,10 @@
 package com.example.applogin.activity
 
+import android.content.ContentValues.TAG
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -10,8 +12,7 @@ import android.widget.Toast
 import com.example.applogin.R
 import com.example.applogin.database.ConfiguracaoFirebase
 import com.google.android.gms.tasks.Task
-import com.google.firebase.auth.AuthResult
-import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.*
 import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity() {
@@ -50,7 +51,24 @@ class RegisterActivity : AppCompatActivity() {
                             startActivity(intent)
 
                         }else{
-                            Toast.makeText(this, "Erro ao Fazer o Cadastro!!!", Toast.LENGTH_SHORT).show()
+
+                            var erroExcecao = ""
+
+                            try {
+                                throw it.exception!!
+                            }catch (e: FirebaseAuthWeakPasswordException){
+                                erroExcecao = "Digite uma Senha mais Forte!"
+                            }catch (e: FirebaseAuthInvalidCredentialsException){
+                                erroExcecao = "Digite um Email Válido!"
+                            }catch (e: FirebaseAuthUserCollisionException){
+                                erroExcecao = "Essa conta ja foi Cadastrada!"
+                            }catch (e: Exception){
+                                erroExcecao = "ao Cadastrar Usuário: " + e.message
+                                e.printStackTrace()
+                            }
+
+                            Toast.makeText(this, "Erro: " + erroExcecao, Toast.LENGTH_LONG).show()
+
                         }
                     }
 

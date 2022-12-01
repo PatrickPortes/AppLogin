@@ -11,6 +11,7 @@ import com.example.applogin.R
 import com.example.applogin.database.ConfiguracaoFirebase
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.activity_login.*
 
@@ -31,6 +32,11 @@ class LoginActivity : AppCompatActivity() {
 
         startingComponents()
 
+        firebaseAuth = FirebaseAuth.getInstance()
+
+        //firebaseAuth.signOut()
+
+        verificaUsuarioLogado()
 
         //LOGIN:
         btLogin.setOnClickListener(){
@@ -55,7 +61,7 @@ class LoginActivity : AppCompatActivity() {
 
                         }else{
 
-                            Toast.makeText(this, "Erro ao Fazer o Login!!!", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this, "Erro ao Fazer Login, Senha ou Email Inválido!!! ", Toast.LENGTH_SHORT).show()
 
                         }
                 }
@@ -73,6 +79,20 @@ class LoginActivity : AppCompatActivity() {
         btSignUp.setOnClickListener(){
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
+        }
+    }
+
+    private fun verificaUsuarioLogado() {
+        val usuarioAtual: FirebaseUser = firebaseAuth.currentUser
+        if (usuarioAtual != null){
+
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+        } else {
+
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 
