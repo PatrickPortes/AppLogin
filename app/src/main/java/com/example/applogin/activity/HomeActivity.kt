@@ -1,11 +1,13 @@
 package com.example.applogin.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
 import android.widget.Switch
+import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import com.example.applogin.R
 import com.google.firebase.auth.FirebaseAuth
@@ -21,17 +23,14 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
+        //supportActionBar!!.hide()
+
         firebaseAuth = FirebaseAuth.getInstance()
 
-        firebaseAuth.signOut()
-
-        supportActionBar?.title = "Home Screen"
-
-
-        /*Configurações ToolBar:
+        //Configurações ToolBar:
         toolbar = toolbarMain
         toolbar.setTitle("Home Screen")
-        setSupportActionBar(toolbar)*/
+        setSupportActionBar(toolbar)
 
     }
 
@@ -55,11 +54,8 @@ class HomeActivity : AppCompatActivity() {
     private fun deslogarUsuario() {
 
         firebaseAuth.signOut()
-        /*
-        try {
-            firebaseAuth.signOut()
-        }catch (e: Exception){
-            e.printStackTrace()
-        }*/
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 }

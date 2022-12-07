@@ -28,7 +28,7 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        supportActionBar!!.hide()
+        //supportActionBar!!.hide()
 
         startingComponents()
 
@@ -49,6 +49,7 @@ class RegisterActivity : AppCompatActivity() {
                             Toast.makeText(this, "Cadastro Realizado Com Sucesso!!!", Toast.LENGTH_SHORT).show()
                             val intent = Intent(this, HomeActivity::class.java)
                             startActivity(intent)
+                            finish()
 
                         }else{
 
